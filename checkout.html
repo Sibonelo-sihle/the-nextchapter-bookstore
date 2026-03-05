@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - The Next Chapter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>The Next Chapter</h1>
+            <p>Every book is a new beginning.</p>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="bundles.html">Bundles</a>
+            <a href="about.html">About</a>
+            <span class="cart" onclick="openCart()">🛒 <span id="cart-count">0</span></span>
+        </nav>
+    </header>
+
+    <h2 class="section-title">Finalize Your Order</h2>
+
+    <div class="checkout-container">
+        <div class="checkout-box order-summary">
+            <h3>Your Selection</h3>
+            <div id="checkoutItems">
+                </div>
+            <hr>
+            <div class="total-row">
+                <h3>Total: R<span id="checkoutTotal">0</span></h3>
+            </div>
+        </div>
+
+        <div class="checkout-box form-section">
+            <div class="payment-toggle">
+                <h4>Select Payment Method</h4>
+                <div class="toggle-buttons">
+                    <label class="method-option">
+                        <input type="radio" name="pay_method" value="payfast" checked onclick="togglePaymentSection('payfast')">
+                        <span class="custom-radio"></span> PayFast (Online)
+                    </label>
+                    <label class="method-option">
+                        <input type="radio" name="pay_method" value="eft" onclick="togglePaymentSection('eft')">
+                        <span class="custom-radio"></span> Manual EFT (Capitec)
+                    </label>
+                </div>
+            </div>
+
+            <form id="checkoutForm" action="https://www.payfast.co.za/eng/process" method="POST">
+                <input type="hidden" name="merchant_id" value="13875121">
+                <input type="hidden" name="merchant_key" value="YOUR_PAYFAST_MERCHANT_KEY">
+                <input type="hidden" name="return_url" value="http://localhost/thank-you.html">
+                <input type="hidden" name="cancel_url" value="https://yourdomain.com/checkout.html">
+                
+                <input type="hidden" name="amount" id="pf_amount">
+                <input type="hidden" name="item_name" id="pf_item_name" value="Book Order">
+                <input type="hidden" name="item_description" id="pf_description">
+                <input type="hidden" name="custom_str2" id="hiddenOrder">
+                <input type="hidden" name="custom_int1" id="hiddenTotal">
+
+                <div class="customer-inputs">
+                    <h4>Shipping Details</h4>
+                    <div class="row">
+                        <input type="text" name="name_first" id="cust_first" placeholder="First Name" required>
+                        <input type="text" name="name_last" id="cust_last" placeholder="Last Name" required>
+                    </div>
+                    <input type="email" name="email_address" id="cust_email" placeholder="Email Address" required>
+                    <textarea name="custom_str1" id="shippingAddress" placeholder="Full Delivery Address (incl. Postal Code)" required></textarea>
+                </div>
+
+                <div class="discount-section">
+                    <input type="text" id="discountCode" placeholder="Discount Code">
+                    <button type="button" class="apply-btn" onclick="applyDiscount()">Apply</button>
+                </div>
+
+                <div id="payfast_btn_area">
+                    <button type="submit" class="checkout-submit-btn pf-orange">
+                        Pay via PayFast
+                    </button>
+                    <p class="secure-note">🔒 Secure Credit/Debit Card Payment</p>
+                </div>
+
+                <div id="eft_btn_area" style="display:none;">
+                    <div class="bank-details-box">
+                        <h5>Capitec Bank Details</h5>
+                        <p><strong>Account Holder:</strong>Next Chapter</p>
+                        <p><strong>Account Number:</strong>  250595004</p>
+                        <p><strong>Branch Code:</strong> 470010</p>
+                        <p><strong>Reference:</strong> Next Chapter</p>
+                    </div>
+                    <button type="button" class="checkout-submit-btn capitec-blue" onclick="handleEFTOrder()">
+                        Confirm Order via WhatsApp
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>© 2026 The Next Chapter | Johannesburg, SA</p>
+            <div class="footer-links">
+                <a href="https://instagram.com/yourpage">Instagram</a>
+                <a href="mailto:orders@buthelezisibonelo79@gmail.com">Email Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js" defer></script>
+</body>
+</html>

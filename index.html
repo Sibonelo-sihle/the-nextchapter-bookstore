@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Next Chapter</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="top-banner">
+    🚚 Free Delivery for Orders Over R999
+</div>
+
+    <header>
+        <div class="logo">
+            <h1>The Next Chapter</h1>
+            <p>Every book is a new beginning.</p>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="bundles.html">Bundles</a>
+            <a href="about.html">About</a>
+            <span class="cart" onclick="openCart()">🛒 <span id="cart-count">0</span></span>
+        </nav>
+    </header>
+
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="Search books..." onkeyup="searchBooks()">
+    </div>
+
+    <div class="categories">
+        <button onclick="filterCategory('All')">All</button>
+        <button onclick="filterCategory('Popular')">Popular</button>
+        <button onclick="filterCategory('Romance')">Romance</button>
+        <button onclick="filterCategory('Kids')">Children's Books</button>
+        <button onclick="filterCategory('South Africa')">South African Literature</button>
+        <button onclick="filterCategory('Sports & Motivation')">Sports & Motivation</button>
+
+    </div>
+
+    <section id="bookGrid" class="grid"></section>
+
+    <footer>
+  <div class="footer-content">
+    <div>
+      <h3>The Next Chapter</h3>
+      <p>Every book is a new beginning.</p>
+      
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a><br><br>
+      <a href="bundles.html">Bundles</a><br><br>
+      <a href="about.html">About</a><br><br>
+      
+    </div>
+
+    <div>
+      <h4>Contact Us</h4>
+      <a href="https://wa.me/2764218448?text=Hi%20I%20would%20like%20to%20order%20a%20book" target="_blank">WhatsApp Us</a><br><br>
+      <a href="mailto:orders@buthelezisibonelo79@gmail.com">Email Us</a><br><br>
+      <a href="https://instagram.com/YOURPAGE" target="_blank">Instagram</a>
+    </div>
+  </div>
+
+  <p class="copyright">
+    © 2026 The Next Chapter | All Rights Reserved
+  </p>
+</footer>
+        
+
+    <script src="js/app.js"></script>
+</body>
+</html>
