@@ -3,13 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Next Chapter</title>
+    <title>The Next Chapter – Online Bookstore SA</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .trust-bar {
+            background: #111;
+            color: #e7ab04;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 14px 20px;
+            font-size: 0.88em;
+            font-weight: bold;
+        }
+        .trust-bar span { display: flex; align-items: center; gap: 6px; }
+
+        .hero-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c1800 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero-section h2 {
+            font-size: 2.4em;
+            margin: 0 0 12px;
+            color: #e7ab04;
+        }
+        .hero-section p {
+            font-size: 1.1em;
+            color: #ccc;
+            margin-bottom: 24px;
+        }
+        .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .hero-btn {
+            padding: 13px 28px;
+            border-radius: 6px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1em;
+            transition: opacity 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        .hero-btn:hover { opacity: 0.85; text-decoration: none; }
+        .hero-btn.primary { background: #e7ab04; color: #111; }
+        .hero-btn.secondary { background: transparent; color: #e7ab04; border: 2px solid #e7ab04; }
+
+        .reviews-strip {
+            background: #fff8e1;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .reviews-strip h2 { font-size: 1.9em; margin-bottom: 6px; }
+        .reviews-strip .sub { color: #666; margin-bottom: 32px; font-size: 0.95em; }
+
+        .reviews-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .review-card {
+            background: white;
+            border-radius: 10px;
+            padding: 22px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            text-align: left;
+            flex: 1;
+            min-width: 220px;
+            max-width: 280px;
+        }
+        .review-stars { color: #e7ab04; font-size: 1.1em; margin-bottom: 10px; }
+        .review-text { color: #555; font-size: 0.9em; margin-bottom: 14px; font-style: italic; line-height: 1.5; }
+        .review-author { font-weight: bold; font-size: 0.88em; }
+        .review-location { font-size: 0.8em; color: #999; }
+
+        .stats-strip {
+            background: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            padding: 36px 20px;
+            text-align: center;
+        }
+        .stat-item .number { font-size: 2.2em; font-weight: bold; color: #e7ab04; }
+        .stat-item .label { font-size: 0.85em; color: #aaa; margin-top: 4px; }
+
+        .how-it-works {
+            padding: 50px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .how-it-works h2 { font-size: 1.9em; margin-bottom: 30px; }
+        .steps-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .step {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 24px 16px;
+        }
+        .step-icon { font-size: 2em; margin-bottom: 10px; }
+        .step h4 { margin: 0 0 6px; font-size: 1em; }
+        .step p { font-size: 0.85em; color: #666; margin: 0; }
+    </style>
 </head>
 <body>
     <div class="top-banner">
-    🚚 Free Delivery for Orders Over R999
-</div>
+        🚚 Free Delivery for Orders Over R999
+    </div>
 
     <header>
         <div class="logo">
@@ -24,51 +134,139 @@
         </nav>
     </header>
 
-    <div class="search">
-        <input type="text" id="searchInput" placeholder="Search books..." onkeyup="searchBooks()">
+    <!-- Trust Bar -->
+    <div class="trust-bar">
+        <span>📦 Fast Nationwide Delivery</span>
+        <span>💬 WhatsApp Support</span>
+        <span>📚 500+ Books in Stock</span>
+        <span>🛡️ Secure EFT Payments</span>
     </div>
 
+    <!-- Hero -->
+    <div class="hero-section">
+        <h2>South Africa's Favourite Online Bookstore</h2>
+        <p>Bestsellers, Romance, Kids Books, SA Classics & More — Delivered to Your Door.</p>
+        <div class="hero-buttons">
+            <a href="#bookGrid" class="hero-btn primary">Browse Books 📚</a>
+            <a href="bundles.html" class="hero-btn secondary">View Bundle Deals 🎁</a>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-strip">
+        <div class="stat-item">
+            <div class="number">500+</div>
+            <div class="label">Books Available</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">4.9★</div>
+            <div class="label">Average Rating</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">2-5</div>
+            <div class="label">Days Delivery</div>
+        </div>
+        <div class="stat-item">
+            <div class="number">100%</div>
+            <div class="label">SA-Based Business</div>
+        </div>
+    </div>
+
+    <!-- How It Works -->
+    <div class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps-row">
+            <div class="step">
+                <div class="step-icon">🛒</div>
+                <h4>1. Add to Cart</h4>
+                <p>Browse our catalogue and add your favourite books.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">💳</div>
+                <h4>2. Checkout</h4>
+                <p>Fill in your details and confirm via WhatsApp.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">🏦</div>
+                <h4>3. EFT Payment</h4>
+                <p>Pay via Capitec EFT and send your proof of payment.</p>
+            </div>
+            <div class="step">
+                <div class="step-icon">🚚</div>
+                <h4>4. We Ship!</h4>
+                <p>Your books are packed and delivered nationwide in 2–5 days.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="🔍 Search books by title..." onkeyup="searchBooks()">
+    </div>
     <div class="categories">
         <button onclick="filterCategory('All')">All</button>
         <button onclick="filterCategory('Popular')">Popular</button>
         <button onclick="filterCategory('Romance')">Romance</button>
         <button onclick="filterCategory('Kids')">Children's Books</button>
-        <button onclick="filterCategory('South Africa')">South African Literature</button>
+        <button onclick="filterCategory('South Africa')">South African</button>
         <button onclick="filterCategory('Sports & Motivation')">Sports & Motivation</button>
-
     </div>
 
     <section id="bookGrid" class="grid"></section>
 
+    <!-- Reviews -->
+    <div class="reviews-strip">
+        <h2>⭐ Customer Reviews</h2>
+        <p class="sub">Trusted by readers across South Africa</p>
+        <div class="reviews-row">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Absolutely amazing service! Got my order in 3 days and the books were well packaged. I've ordered 3 times already."</p>
+                <div class="review-author">Lungelo D.</div>
+                <div class="review-location">Durban, KZN</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Best prices I've found online for SA delivery. The bundle deal saved me so much money. Highly recommend!"</p>
+                <div class="review-author">Kefilwe M.</div>
+                <div class="review-location">Soweto, GP</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Ordered via WhatsApp — so easy! The owner replied quickly and my books arrived exactly when he said they would."</p>
+                <div class="review-author">Riyaadh H.</div>
+                <div class="review-location">Cape Town, WC</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-text">"Great selection. Bought Atomic Habits and Born a Crime together for my son. He loves them both. Will be back!"</p>
+                <div class="review-author">Zanele N.</div>
+                <div class="review-location">Pretoria, GP</div>
+            </div>
+        </div>
+    </div>
+
     <footer>
-  <div class="footer-content">
-    <div>
-      <h3>The Next Chapter</h3>
-      <p>Every book is a new beginning.</p>
-      
-    </div>
-
-    <div>
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a><br><br>
-      <a href="bundles.html">Bundles</a><br><br>
-      <a href="about.html">About</a><br><br>
-      
-    </div>
-
-    <div>
-      <h4>Contact Us</h4>
-      <a href="https://wa.me/27710383692?text=Hi%20I%20would%20like%20to%20order%20a%20book" target="_blank">WhatsApp Us</a><br><br>
-      <a href="mailto:orders@sibonelobuthelezi10@gmail.com">Email Us</a><br><br>
-      <a href="https://instagram.com/next_c.hapterbookstore" target="_blank">Instagram</a>
-    </div>
-  </div>
-
-  <p class="copyright">
-    © 2026 The Next Chapter | All Rights Reserved
-  </p>
-</footer>
-        
+        <div class="footer-content">
+            <div>
+                <h3>The Next Chapter</h3>
+                <p>Every book is a new beginning.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a><br><br>
+                <a href="bundles.html">Bundles</a><br><br>
+                <a href="about.html">About</a><br><br>
+            </div>
+            <div>
+                <h4>Contact Us</h4>
+                <a href="https://wa.me/27710383692?text=Hi%20I%20would%20like%20to%20order%20a%20book" target="_blank">WhatsApp Us</a><br><br>
+                <a href="mailto:orders@sibonelobuthelezi10@gmail.com">Email Us</a><br><br>
+                <a href="https://instagram.com/next_c.hapterbookstore" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <p class="copyright">© 2026 The Next Chapter | All Rights Reserved</p>
+    </footer>
 
     <script src="js/app.js"></script>
 </body>

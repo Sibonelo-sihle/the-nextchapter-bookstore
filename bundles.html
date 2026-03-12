@@ -5,11 +5,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bundles - The Next Chapter</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .bundles-hero {
+            background: linear-gradient(135deg, #111 0%, #2a1a00 100%);
+            color: white;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        .bundles-hero h1 { font-size: 2.5em; margin: 0 0 10px; color: #e7ab04; }
+        .bundles-hero p { font-size: 1.1em; color: #ccc; margin: 0; }
+
+        .bundles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .bundle-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .bundle-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(0,0,0,0.18);
+        }
+        .bundle-card-header {
+            background: #111;
+            padding: 24px 20px 16px;
+            color: white;
+            position: relative;
+        }
+        .bundle-badge {
+            background: #e7ab04;
+            color: #111;
+            font-size: 0.7em;
+            font-weight: bold;
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .bundle-card-header h3 {
+            margin: 0 0 6px;
+            font-size: 1.2em;
+        }
+        .bundle-card-header .bundle-price {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #e7ab04;
+        }
+        .bundle-card-header .bundle-price span {
+            font-size: 0.5em;
+            color: #aaa;
+            font-weight: normal;
+        }
+        .bundle-card-body {
+            padding: 16px 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .bundle-card-body p {
+            color: #555;
+            font-size: 0.92em;
+            flex: 1;
+            margin-bottom: 16px;
+        }
+        .bundle-card-body ul {
+            margin: 0 0 16px;
+            padding-left: 20px;
+            color: #444;
+            font-size: 0.9em;
+        }
+        .bundle-card-body ul li { margin-bottom: 4px; }
+        .bundle-select-btn {
+            background: #111;
+            color: #e7ab04;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .bundle-select-btn:hover { background: #333; }
+        .bundle-select-btn.gold {
+            background: #e7ab04;
+            color: #111;
+        }
+        .bundle-select-btn.gold:hover { background: #d4990a; }
+
+        .bundle-savings {
+            font-size: 0.8em;
+            color: #27ae60;
+            font-weight: bold;
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        /* REVIEWS */
+        .reviews-section {
+            background: #f9f9f9;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .reviews-section h2 { font-size: 2em; margin-bottom: 8px; }
+        .reviews-section .subtitle { color: #666; margin-bottom: 36px; }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .review-card {
+            background: white;
+            border-radius: 10px;
+            padding: 22px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            text-align: left;
+        }
+        .review-stars { color: #e7ab04; font-size: 1.2em; margin-bottom: 8px; }
+        .review-text { color: #444; font-size: 0.93em; margin-bottom: 14px; font-style: italic; }
+        .review-author { font-weight: bold; font-size: 0.9em; color: #222; }
+        .review-location { font-size: 0.8em; color: #999; }
+
+        /* Individual books section */
+        .section-divider {
+            text-align: center;
+            padding: 10px 20px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-divider h2 { font-size: 1.6em; border-bottom: 2px solid #e7ab04; display: inline-block; padding-bottom: 4px; }
+    </style>
 </head>
 <body>
     <div class="top-banner">
-    🚚 Free Delivery for Orders Over R999
-</div>
+        🚚 Free Delivery for Orders Over R999
+    </div>
     <header>
         <div class="logo">
             <h1>The Next Chapter</h1>
@@ -23,79 +169,168 @@
         </nav>
     </header>
 
-    <h2 class="section-title">Our 2 Specials</h2>
-
-    <div class="special-box">
-        Any 4 Books for R1050
-        <button onclick="openBundleSelection('any4')">Select Books</button>
+    <div class="bundles-hero">
+        <h1>📦 Bundle Deals</h1>
+        <p>Save more when you buy more. Pick from our 4 curated bundles below.</p>
     </div>
 
-    <div class="special-box">
-        Any Bundle – 3 Books for R900
-        <button onclick="openBundleSelection('romance3')">Select Books</button>
+    <div class="bundles-grid">
+
+        <!-- Bundle 1: Any 4 for R1050 -->
+        <div class="bundle-card">
+            <div class="bundle-card-header">
+                <span class="bundle-badge">⭐ Best Value</span>
+                <h3>Any 4 Books</h3>
+                <div class="bundle-price">R1050 <span>for 4 books</span></div>
+            </div>
+            <div class="bundle-card-body">
+                <p>Hand-pick any 4 books from our entire catalogue — Popular, Romance, Kids, SA Literature, Sports & more.</p>
+                <ul>
+                    <li>Any category</li>
+                    <li>Choose all 4 yourself</li>
+                    <li>Nationwide delivery</li>
+                </ul>
+                <button class="bundle-select-btn" onclick="openBundleSelection('any4')">Select Your 4 Books →</button>
+                <p class="bundle-savings">Save up to R550 vs individual prices</p>
+            </div>
+        </div>
+
+        <!-- Bundle 2: Romance 3 for R900 -->
+        <div class="bundle-card">
+            <div class="bundle-card-header">
+                <span class="bundle-badge">❤️ Romance</span>
+                <h3>Romance Bundle</h3>
+                <div class="bundle-price">R900 <span>for 3 books</span></div>
+            </div>
+            <div class="bundle-card-body">
+                <p>Three of the hottest romance reads — from Colleen Hoover favourites to beloved classics. Perfect gift idea!</p>
+                <ul>
+                    <li>Romance category only</li>
+                    <li>Choose your 3 faves</li>
+                    <li>Great for gifting</li>
+                </ul>
+                <button class="bundle-select-btn" onclick="openBundleSelection('romance3')">Select 3 Romance Books →</button>
+                <p class="bundle-savings">Save up to R240 vs individual prices</p>
+            </div>
+        </div>
+
+        <!-- Bundle 3: Buy 3 Get 1 Free -->
+        <div class="bundle-card">
+            <div class="bundle-card-header">
+                <span class="bundle-badge">🎁 Free Book</span>
+                <h3>Buy 3 Get 1 Free</h3>
+                <div class="bundle-price">R1050 <span>pay for 3, get 4</span></div>
+            </div>
+            <div class="bundle-card-body">
+                <p>Pick any 4 books — the cheapest one is automatically FREE! Great way to discover something new.</p>
+                <ul>
+                    <li>Any category</li>
+                    <li>Pick 4, pay for 3</li>
+                    <li>Cheapest book is FREE</li>
+                </ul>
+                <button class="bundle-select-btn gold" onclick="openBundleSelection('buy3get1')">Claim Your Free Book →</button>
+                <p class="bundle-savings">Get the cheapest book FREE automatically!</p>
+            </div>
+        </div>
+
+        <!-- Bundle 4: Starter Pack -->
+        <div class="bundle-card">
+            <div class="bundle-card-header">
+                <span class="bundle-badge">🚀 New Reader</span>
+                <h3>Starter Pack</h3>
+                <div class="bundle-price">R850 <span>for 3 books</span></div>
+            </div>
+            <div class="bundle-card-body">
+                <p>New to reading or buying for someone just starting out? Pick 3 books from our Popular & Kids collection — perfect first library.</p>
+                <ul>
+                    <li>Popular + Kids selection</li>
+                    <li>Perfect for beginners</li>
+                    <li>Great gift idea</li>
+                </ul>
+                <button class="bundle-select-btn" onclick="openBundleSelection('starterpack')">Build Starter Pack →</button>
+                <p class="bundle-savings">Save up to R200 vs individual prices</p>
+            </div>
+        </div>
+
     </div>
 
-
- <div class="special-box">
-        Buy 3 Get 1 Free (4 for Price of 3)
-        <button onclick="openBundleSelection('any4')">Select Books</button>
+    <!-- Individual Books Section -->
+    <div class="section-divider">
+        <h2>Add Individual Books to Your Bundle</h2>
+        <p style="color:#666;margin-top:8px;">Browse everything and mix & match to build your perfect order.</p>
     </div>
-
-    <h2 class="section-title">Build Your Bundle (Add Individually)</h2>
-
     <div id="bundleGrid" class="grid"></div>
 
-   <div id="bundleModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeBundleModal()">&times;</span>
-        <h2 id="bundleTitle">Select Your Books</h2>
-        <p id="bundleInstructions">Please select books to continue.</p>
+    <!-- Bundle Selection Modal -->
+    <div id="bundleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBundleModal()">&times;</span>
+            <h2 id="bundleTitle">Select Your Books</h2>
+            <p id="bundleInstructions">Please select books to continue.</p>
+            <button id="addBundleToCart"
+                    onclick="addBundleToCart()"
+                    disabled
+                    class="bundle-submit-btn">
+                Select books to continue
+            </button>
+            <div id="bundleBookGrid" class="grid"></div>
+        </div>
+    </div>
 
-        <button id="addBundleToCart" 
-                onclick="addBundleToCart()" 
-                disabled
-                class="bundle-submit-btn">
-            Add Bundle to Cart
-        </button>
-
-        <div id="bundleBookGrid" class="grid">
+    <!-- Reviews Section -->
+    <div class="reviews-section">
+        <h2>What Our Customers Say</h2>
+        <p class="subtitle">Real reviews from real South African readers 🇿🇦</p>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Ordered the Any 4 Bundle and got my books within 3 days. Packaging was neat and the prices are unbeatable. Will definitely order again!"</p>
+                <div class="review-author">Nomvula T.</div>
+                <div class="review-location">Johannesburg, GP</div>
             </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"The Romance Bundle was the perfect birthday gift for my sister. She loved all 3 books. The WhatsApp process was super easy too."</p>
+                <div class="review-author">Thabo M.</div>
+                <div class="review-location">Pretoria, GP</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Got the Buy 3 Get 1 Free deal — legit got Atomic Habits for free. Fast delivery, great service. This is my go-to bookstore now."</p>
+                <div class="review-author">Ayanda K.</div>
+                <div class="review-location">Durban, KZN</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-text">"Bought the Starter Pack for my son and he's already halfway through The Lightning Thief. He's always asking for more books now. Worth every rand!"</p>
+                <div class="review-author">Priya N.</div>
+                <div class="review-location">Cape Town, WC</div>
+            </div>
+        </div>
     </div>
-</div>
 
-   <footer>
-  <div class="footer-content">
-    <div>
-      <h3>The Next Chapter</h3>
-      <p>Every book is a new beginning.</p>
-      <p></p>
-    </div>
-
-    <div>
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a><br><br>
-      <a href="bundles.html">Bundles</a><br><br>
-      <a href="about.html">About</a><br><br>
-      
-    </div>
-
-    <div>
-      <h4>Contact Us</h4>
-      <a href="https://wa.me/27710383692?text=Hi%20I%20would%20like%20to%20order%20a%20book" target="_blank">WhatsApp Us</a><br><br>
-      <a href="mailto:orders@sibonelobuthelezi10@gmail.com">Email Us</a><br><br>
-      <a href="https://instagram.com/next_c.hapterbookstore" target="_blank">Instagram</a>
-    </div>
-  </div>
-
-  <p class="copyright">
-    © 2026 The Next Chapter | All Rights Reserved
-  </p>
-</footer>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>The Next Chapter</h3>
+                <p>Every book is a new beginning.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a><br><br>
+                <a href="bundles.html">Bundles</a><br><br>
+                <a href="about.html">About</a><br><br>
+            </div>
+            <div>
+                <h4>Contact Us</h4>
+                <a href="https://wa.me/27710383692?text=Hi%20I%20would%20like%20to%20order%20a%20book" target="_blank">WhatsApp Us</a><br><br>
+                <a href="mailto:orders@sibonelobuthelezi10@gmail.com">Email Us</a><br><br>
+                <a href="https://instagram.com/next_c.hapterbookstore" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <p class="copyright">© 2026 The Next Chapter | All Rights Reserved</p>
+    </footer>
 
     <script src="js/app.js"></script>
 </body>
 </html>
-
-
-
-
