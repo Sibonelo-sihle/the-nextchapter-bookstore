@@ -43,6 +43,12 @@
             color: white;
             position: relative;
         }
+        .bundle-card-header.gold-header {
+            background: linear-gradient(135deg, #2a1a00 0%, #e7ab04 100%);
+        }
+        .bundle-card-header.purple-header {
+            background: linear-gradient(135deg, #1a0030 0%, #5c2d91 100%);
+        }
         .bundle-badge {
             background: #e7ab04;
             color: #111;
@@ -55,6 +61,14 @@
             display: inline-block;
             margin-bottom: 10px;
         }
+        .bundle-badge.white-badge {
+            background: white;
+            color: #5c2d91;
+        }
+        .bundle-badge.dark-badge {
+            background: #111;
+            color: #e7ab04;
+        }
         .bundle-card-header h3 {
             margin: 0 0 6px;
             font-size: 1.2em;
@@ -64,10 +78,22 @@
             font-weight: bold;
             color: #e7ab04;
         }
+        .bundle-card-header.gold-header .bundle-price {
+            color: #111;
+        }
+        .bundle-card-header.purple-header .bundle-price {
+            color: #f0d0ff;
+        }
         .bundle-card-header .bundle-price span {
             font-size: 0.5em;
             color: #aaa;
             font-weight: normal;
+        }
+        .bundle-card-header.gold-header .bundle-price span {
+            color: #333;
+        }
+        .bundle-card-header.purple-header .bundle-price span {
+            color: #ccc;
         }
         .bundle-card-body {
             padding: 16px 20px;
@@ -106,6 +132,11 @@
             color: #111;
         }
         .bundle-select-btn.gold:hover { background: #d4990a; }
+        .bundle-select-btn.purple {
+            background: #5c2d91;
+            color: white;
+        }
+        .bundle-select-btn.purple:hover { background: #7a3dc0; }
 
         .bundle-savings {
             font-size: 0.8em;
@@ -113,6 +144,33 @@
             font-weight: bold;
             margin-top: 6px;
             text-align: center;
+        }
+        .bundle-savings.purple-savings {
+            color: #5c2d91;
+        }
+
+        /* NEW BUNDLE RIBBON */
+        .new-ribbon {
+            position: absolute;
+            top: 12px;
+            right: -8px;
+            background: #e74c3c;
+            color: white;
+            font-size: 0.68em;
+            font-weight: bold;
+            padding: 3px 12px 3px 8px;
+            border-radius: 3px 0 0 3px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .new-ribbon::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            border-style: solid;
+            border-width: 11px 8px 11px 0;
+            border-color: transparent #8b0000 transparent transparent;
         }
 
         /* REVIEWS */
@@ -150,6 +208,15 @@
             margin: 0 auto;
         }
         .section-divider h2 { font-size: 1.6em; border-bottom: 2px solid #e7ab04; display: inline-block; padding-bottom: 4px; }
+
+        /* Whatsapp CTA for subscription */
+        .whatsapp-note {
+            font-size: 0.78em;
+            color: #25d366;
+            font-weight: bold;
+            margin-top: 4px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -171,17 +238,17 @@
 
     <div class="bundles-hero">
         <h1>📦 Bundle Deals</h1>
-        <p>Save more when you buy more. Pick from our 4 curated bundles below.</p>
+        <p>Save more when you buy more. Pick from our curated bundles below.</p>
     </div>
 
     <div class="bundles-grid">
 
-        <!-- Bundle 1: Any 4 for R1050 -->
+        <!-- Bundle 1: Any 4 for R999 (was R1050) -->
         <div class="bundle-card">
             <div class="bundle-card-header">
                 <span class="bundle-badge">⭐ Best Value</span>
                 <h3>Any 4 Books</h3>
-                <div class="bundle-price">R1050 <span>for 4 books</span></div>
+                <div class="bundle-price">R999 <span>for 4 books</span></div>
             </div>
             <div class="bundle-card-body">
                 <p>Hand-pick any 4 books from our entire catalogue — Popular, Romance, Kids, SA Literature, Sports & more.</p>
@@ -195,12 +262,12 @@
             </div>
         </div>
 
-        <!-- Bundle 2: Romance 3 for R900 -->
+        <!-- Bundle 2: Romance 3 for R849 (was R900) -->
         <div class="bundle-card">
             <div class="bundle-card-header">
                 <span class="bundle-badge">❤️ Romance</span>
                 <h3>Romance Bundle</h3>
-                <div class="bundle-price">R900 <span>for 3 books</span></div>
+                <div class="bundle-price">R849 <span>for 3 books</span></div>
             </div>
             <div class="bundle-card-body">
                 <p>Three of the hottest romance reads — from Colleen Hoover favourites to beloved classics. Perfect gift idea!</p>
@@ -214,12 +281,12 @@
             </div>
         </div>
 
-        <!-- Bundle 3: Buy 3 Get 1 Free -->
+        <!-- Bundle 3: Buy 3 Get 1 Free - R999 (was R1050) -->
         <div class="bundle-card">
             <div class="bundle-card-header">
                 <span class="bundle-badge">🎁 Free Book</span>
                 <h3>Buy 3 Get 1 Free</h3>
-                <div class="bundle-price">R1050 <span>pay for 3, get 4</span></div>
+                <div class="bundle-price">R999 <span>pay for 3, get 4</span></div>
             </div>
             <div class="bundle-card-body">
                 <p>Pick any 4 books — the cheapest one is automatically FREE! Great way to discover something new.</p>
@@ -233,12 +300,12 @@
             </div>
         </div>
 
-        <!-- Bundle 4: Starter Pack -->
+        <!-- Bundle 4: Starter Pack R799 (was R850) -->
         <div class="bundle-card">
             <div class="bundle-card-header">
                 <span class="bundle-badge">🚀 New Reader</span>
                 <h3>Starter Pack</h3>
-                <div class="bundle-price">R850 <span>for 3 books</span></div>
+                <div class="bundle-price">R799 <span>for 3 books</span></div>
             </div>
             <div class="bundle-card-body">
                 <p>New to reading or buying for someone just starting out? Pick 3 books from our Popular & Kids collection — perfect first library.</p>
@@ -249,6 +316,49 @@
                 </ul>
                 <button class="bundle-select-btn" onclick="openBundleSelection('starterpack')">Build Starter Pack →</button>
                 <p class="bundle-savings">Save up to R200 vs individual prices</p>
+            </div>
+        </div>
+
+        <!-- Bundle 5 (NEW): The Gift Box - 5 books + gift wrap -->
+        <div class="bundle-card">
+            <div class="bundle-card-header gold-header" style="position:relative;">
+                <span class="bundle-badge dark-badge">🎀 Premium Gift</span>
+                <div class="new-ribbon">NEW</div>
+                <h3>The Gift Box</h3>
+                <div class="bundle-price">R1149 <span>5 books + gift wrap</span></div>
+            </div>
+            <div class="bundle-card-body">
+                <p>The ultimate gift for any reader. Choose 5 books, and we'll pack them in a beautiful gift box with a personalised message card — ready to give!</p>
+                <ul>
+                    <li>Any 5 books from catalogue</li>
+                    <li>Branded gift box included</li>
+                    <li>Free personalised message card</li>
+                    <li>Perfect for birthdays & holidays</li>
+                </ul>
+                <button class="bundle-select-btn gold" onclick="openBundleSelection('giftbox')">Build Your Gift Box →</button>
+                <p class="bundle-savings">Save up to R700 vs buying separately</p>
+            </div>
+        </div>
+
+        <!-- Bundle 6 (NEW): Monthly Book Club Subscription -->
+        <div class="bundle-card">
+            <div class="bundle-card-header purple-header" style="position:relative;">
+                <span class="bundle-badge white-badge">📅 Subscribe & Save</span>
+                <div class="new-ribbon">NEW</div>
+                <h3>Monthly Book Club</h3>
+                <div class="bundle-price">R649 <span>/ month · 2 books</span></div>
+            </div>
+            <div class="bundle-card-body">
+                <p>Get 2 freshly picked books delivered to your door every month. We curate based on your genre preferences — you never have to think about what to read next.</p>
+                <ul>
+                    <li>2 books every month</li>
+                    <li>Curated to your taste</li>
+                    <li>Cancel anytime via WhatsApp</li>
+                    <li>Exclusive subscriber discounts</li>
+                </ul>
+                <button class="bundle-select-btn purple" onclick="window.open('https://wa.me/27710383692?text=Hi%2C%20I%20want%20to%20subscribe%20to%20the%20Monthly%20Book%20Club!%20My%20favourite%20genres%20are%3A%20', '_blank')">Subscribe via WhatsApp →</button>
+                <p class="bundle-savings purple-savings">Best long-term value — saves R100+ every month</p>
+                <p class="whatsapp-note">📲 Managed easily over WhatsApp</p>
             </div>
         </div>
 
@@ -305,6 +415,18 @@
                 <p class="review-text">"Bought the Starter Pack for my son and he's already halfway through The Lightning Thief. He's always asking for more books now. Worth every rand!"</p>
                 <div class="review-author">Priya N.</div>
                 <div class="review-location">Cape Town, WC</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"The Gift Box was SO beautiful. I got it for my mum's birthday — the packaging alone made her cry happy tears. 10/10 will order again for Christmas."</p>
+                <div class="review-author">Lerato S.</div>
+                <div class="review-location">Soweto, GP</div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Been on the Monthly Book Club for 3 months now and every single pick has been a banger. Love that they actually remember my preferences. Best R649 I spend!"</p>
+                <div class="review-author">Sipho D.</div>
+                <div class="review-location">East London, EC</div>
             </div>
         </div>
     </div>
