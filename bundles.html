@@ -61,58 +61,27 @@
             display: inline-block;
             margin-bottom: 10px;
         }
-        .bundle-badge.white-badge {
-            background: white;
-            color: #5c2d91;
-        }
-        .bundle-badge.dark-badge {
-            background: #111;
-            color: #e7ab04;
-        }
-        .bundle-card-header h3 {
-            margin: 0 0 6px;
-            font-size: 1.2em;
-        }
+        .bundle-badge.white-badge { background: white; color: #5c2d91; }
+        .bundle-badge.dark-badge  { background: #111; color: #e7ab04; }
+        .bundle-card-header h3 { margin: 0 0 6px; font-size: 1.2em; }
         .bundle-card-header .bundle-price {
             font-size: 1.8em;
             font-weight: bold;
             color: #e7ab04;
         }
-        .bundle-card-header.gold-header .bundle-price {
-            color: #111;
-        }
-        .bundle-card-header.purple-header .bundle-price {
-            color: #f0d0ff;
-        }
-        .bundle-card-header .bundle-price span {
-            font-size: 0.5em;
-            color: #aaa;
-            font-weight: normal;
-        }
-        .bundle-card-header.gold-header .bundle-price span {
-            color: #333;
-        }
-        .bundle-card-header.purple-header .bundle-price span {
-            color: #ccc;
-        }
+        .bundle-card-header.gold-header   .bundle-price { color: #111; }
+        .bundle-card-header.purple-header .bundle-price { color: #f0d0ff; }
+        .bundle-card-header .bundle-price span { font-size: 0.5em; color: #aaa; font-weight: normal; }
+        .bundle-card-header.gold-header   .bundle-price span { color: #333; }
+        .bundle-card-header.purple-header .bundle-price span { color: #ccc; }
         .bundle-card-body {
             padding: 16px 20px;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
-        .bundle-card-body p {
-            color: #555;
-            font-size: 0.92em;
-            flex: 1;
-            margin-bottom: 16px;
-        }
-        .bundle-card-body ul {
-            margin: 0 0 16px;
-            padding-left: 20px;
-            color: #444;
-            font-size: 0.9em;
-        }
+        .bundle-card-body p { color: #555; font-size: 0.92em; flex: 1; margin-bottom: 16px; }
+        .bundle-card-body ul { margin: 0 0 16px; padding-left: 20px; color: #444; font-size: 0.9em; }
         .bundle-card-body ul li { margin-bottom: 4px; }
         .bundle-select-btn {
             background: #111;
@@ -126,59 +95,27 @@
             width: 100%;
             transition: background 0.2s;
         }
-        .bundle-select-btn:hover { background: #333; }
-        .bundle-select-btn.gold {
-            background: #e7ab04;
-            color: #111;
-        }
-        .bundle-select-btn.gold:hover { background: #d4990a; }
-        .bundle-select-btn.purple {
-            background: #5c2d91;
-            color: white;
-        }
+        .bundle-select-btn:hover        { background: #333; }
+        .bundle-select-btn.gold         { background: #e7ab04; color: #111; }
+        .bundle-select-btn.gold:hover   { background: #d4990a; }
+        .bundle-select-btn.purple       { background: #5c2d91; color: white; }
         .bundle-select-btn.purple:hover { background: #7a3dc0; }
-
-        .bundle-savings {
-            font-size: 0.8em;
-            color: #27ae60;
-            font-weight: bold;
-            margin-top: 6px;
-            text-align: center;
-        }
-        .bundle-savings.purple-savings {
-            color: #5c2d91;
-        }
-
-        /* NEW BUNDLE RIBBON */
+        .bundle-savings { font-size: 0.8em; color: #27ae60; font-weight: bold; margin-top: 6px; text-align: center; }
+        .bundle-savings.purple-savings { color: #5c2d91; }
         .new-ribbon {
             position: absolute;
             top: 12px;
-            right: -8px;
+            right: 0;
             background: #e74c3c;
             color: white;
             font-size: 0.68em;
             font-weight: bold;
-            padding: 3px 12px 3px 8px;
+            padding: 3px 10px;
             border-radius: 3px 0 0 3px;
             letter-spacing: 0.05em;
             text-transform: uppercase;
         }
-        .new-ribbon::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 0;
-            border-style: solid;
-            border-width: 11px 8px 11px 0;
-            border-color: transparent #8b0000 transparent transparent;
-        }
-
-        /* REVIEWS */
-        .reviews-section {
-            background: #f9f9f9;
-            padding: 50px 20px;
-            text-align: center;
-        }
+        .reviews-section { background: #f9f9f9; padding: 50px 20px; text-align: center; }
         .reviews-section h2 { font-size: 2em; margin-bottom: 8px; }
         .reviews-section .subtitle { color: #666; margin-bottom: 36px; }
         .reviews-grid {
@@ -188,35 +125,14 @@
             max-width: 1100px;
             margin: 0 auto;
         }
-        .review-card {
-            background: white;
-            border-radius: 10px;
-            padding: 22px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            text-align: left;
-        }
+        .review-card { background: white; border-radius: 10px; padding: 22px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); text-align: left; }
         .review-stars { color: #e7ab04; font-size: 1.2em; margin-bottom: 8px; }
         .review-text { color: #444; font-size: 0.93em; margin-bottom: 14px; font-style: italic; }
         .review-author { font-weight: bold; font-size: 0.9em; color: #222; }
         .review-location { font-size: 0.8em; color: #999; }
-
-        /* Individual books section */
-        .section-divider {
-            text-align: center;
-            padding: 10px 20px 0;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .section-divider { text-align: center; padding: 10px 20px 0; max-width: 1200px; margin: 0 auto; }
         .section-divider h2 { font-size: 1.6em; border-bottom: 2px solid #e7ab04; display: inline-block; padding-bottom: 4px; }
-
-        /* Whatsapp CTA for subscription */
-        .whatsapp-note {
-            font-size: 0.78em;
-            color: #25d366;
-            font-weight: bold;
-            margin-top: 4px;
-            text-align: center;
-        }
+        .whatsapp-note { font-size: 0.78em; color: #25d366; font-weight: bold; margin-top: 4px; text-align: center; }
     </style>
 </head>
 <body>
@@ -231,6 +147,7 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="bundles.html">Bundles</a>
+            <a href="request.html">Request a Book</a>
             <a href="about.html">About</a>
             <span class="cart" onclick="openCart()">🛒 <span id="cart-count">0</span></span>
         </nav>
@@ -243,26 +160,26 @@
 
     <div class="bundles-grid">
 
-        <!-- Bundle 1: Any 4 for R999 (was R1050) -->
+        <!-- Bundle 1: Any 4 for R900 -->
         <div class="bundle-card">
             <div class="bundle-card-header">
                 <span class="bundle-badge">⭐ Best Value</span>
                 <h3>Any 4 Books</h3>
-                <div class="bundle-price">R999 <span>for 4 books</span></div>
+                <div class="bundle-price">R900 <span>for 4 books</span></div>
             </div>
             <div class="bundle-card-body">
-                <p>Hand-pick any 4 books from our entire catalogue — Popular, Romance, Kids, SA Literature, Sports & more.</p>
+                <p>Hand-pick any 4 books from our entire catalogue — Popular, Romance, Kids, SA Literature, Sports &amp; more.</p>
                 <ul>
                     <li>Any category</li>
                     <li>Choose all 4 yourself</li>
                     <li>Nationwide delivery</li>
                 </ul>
                 <button class="bundle-select-btn" onclick="openBundleSelection('any4')">Select Your 4 Books →</button>
-                <p class="bundle-savings">Save up to R550 vs individual prices</p>
+                <p class="bundle-savings">Save up to R600 vs individual prices</p>
             </div>
         </div>
 
-        <!-- Bundle 2: Romance 3 for R849 (was R900) -->
+        <!-- Bundle 2: Romance 3 for R849 -->
         <div class="bundle-card">
             <div class="bundle-card-header">
                 <span class="bundle-badge">❤️ Romance</span>
@@ -281,34 +198,34 @@
             </div>
         </div>
 
-        <!-- Bundle 3: Buy 3 Get 1 Free - R999 (was R1050) -->
+        <!-- Bundle 3: Buy 3 Get 1 Free — R999 -->
         <div class="bundle-card">
             <div class="bundle-card-header">
                 <span class="bundle-badge">🎁 Free Book</span>
                 <h3>Buy 3 Get 1 Free</h3>
-                <div class="bundle-price">R999 <span>pay for 3, get 4</span></div>
+                <div class="bundle-price">R999 <span>pick 4, pay for 3</span></div>
             </div>
             <div class="bundle-card-body">
-                <p>Pick any 4 books — the cheapest one is automatically FREE! Great way to discover something new.</p>
+                <p>Pick any 4 books and the cheapest one is FREE. The more premium your picks, the more you save!</p>
                 <ul>
                     <li>Any category</li>
-                    <li>Pick 4, pay for 3</li>
-                    <li>Cheapest book is FREE</li>
+                    <li>Pick 4 books</li>
+                    <li>Cheapest book FREE</li>
                 </ul>
                 <button class="bundle-select-btn gold" onclick="openBundleSelection('buy3get1')">Claim Your Free Book →</button>
-                <p class="bundle-savings">Get the cheapest book FREE automatically!</p>
+                <p class="bundle-savings">Cheapest book goes FREE automatically!</p>
             </div>
         </div>
 
-        <!-- Bundle 4: Starter Pack R799 (was R850) -->
+        <!-- Bundle 4: Starter Pack R799 -->
         <div class="bundle-card">
             <div class="bundle-card-header">
-                <span class="bundle-badge">🚀 New Reader</span>
+                <span class="bundle-badge">📖 New Reader</span>
                 <h3>Starter Pack</h3>
                 <div class="bundle-price">R799 <span>for 3 books</span></div>
             </div>
             <div class="bundle-card-body">
-                <p>New to reading or buying for someone just starting out? Pick 3 books from our Popular & Kids collection — perfect first library.</p>
+                <p>New to reading or buying for someone just starting out? Pick 3 books from our Popular &amp; Kids collection — perfect first library.</p>
                 <ul>
                     <li>Popular + Kids selection</li>
                     <li>Perfect for beginners</li>
@@ -319,9 +236,9 @@
             </div>
         </div>
 
-        <!-- Bundle 5 (NEW): The Gift Box - 5 books + gift wrap -->
+        <!-- Bundle 5: The Gift Box — R1149 -->
         <div class="bundle-card">
-            <div class="bundle-card-header gold-header" style="position:relative;">
+            <div class="bundle-card-header gold-header">
                 <span class="bundle-badge dark-badge">🎀 Premium Gift</span>
                 <div class="new-ribbon">NEW</div>
                 <h3>The Gift Box</h3>
@@ -333,17 +250,17 @@
                     <li>Any 5 books from catalogue</li>
                     <li>Branded gift box included</li>
                     <li>Free personalised message card</li>
-                    <li>Perfect for birthdays & holidays</li>
+                    <li>Perfect for birthdays &amp; holidays</li>
                 </ul>
                 <button class="bundle-select-btn gold" onclick="openBundleSelection('giftbox')">Build Your Gift Box →</button>
                 <p class="bundle-savings">Save up to R700 vs buying separately</p>
             </div>
         </div>
 
-        <!-- Bundle 6 (NEW): Monthly Book Club Subscription -->
+        <!-- Bundle 6: Monthly Book Club -->
         <div class="bundle-card">
-            <div class="bundle-card-header purple-header" style="position:relative;">
-                <span class="bundle-badge white-badge">📅 Subscribe & Save</span>
+            <div class="bundle-card-header purple-header">
+                <span class="bundle-badge white-badge">📅 Subscribe &amp; Save</span>
                 <div class="new-ribbon">NEW</div>
                 <h3>Monthly Book Club</h3>
                 <div class="bundle-price">R649 <span>/ month · 2 books</span></div>
@@ -367,7 +284,7 @@
     <!-- Individual Books Section -->
     <div class="section-divider">
         <h2>Add Individual Books to Your Bundle</h2>
-        <p style="color:#666;margin-top:8px;">Browse everything and mix & match to build your perfect order.</p>
+        <p style="color:#666;margin-top:8px;">Browse everything and mix &amp; match to build your perfect order.</p>
     </div>
     <div id="bundleGrid" class="grid"></div>
 
@@ -441,12 +358,13 @@
                 <h4>Quick Links</h4>
                 <a href="index.html">Home</a><br><br>
                 <a href="bundles.html">Bundles</a><br><br>
+                <a href="request.html">Request a Book</a><br><br>
                 <a href="about.html">About</a><br><br>
             </div>
             <div>
                 <h4>Contact Us</h4>
                 <a href="https://wa.me/27710383692?text=Hi%20I%20would%20like%20to%20order%20a%20book" target="_blank">WhatsApp Us</a><br><br>
-                <a href="mailto:orders@sibonelobuthelezi10@gmail.com">Email Us</a><br><br>
+                <a href="mailto:sibonelobuthelezi10@gmail.com">Email Us</a><br><br>
                 <a href="https://instagram.com/next_c.hapterbookstore" target="_blank">Instagram</a>
             </div>
         </div>

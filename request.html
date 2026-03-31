@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Book - The Next Chapter</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .request-hero {
+            background: linear-gradient(135deg, #111 0%, #2a1a00 100%);
+            color: white;
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+        .request-hero h1 { font-size: 2.5em; margin: 0 0 10px; color: #e7ab04; }
+        .request-hero p { font-size: 1.1em; color: #ccc; margin: 0; }
+
+        .request-wrapper {
+            max-width: 760px;
+            margin: 50px auto;
+            padding: 0 20px 60px;
+        }
+
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+        .step-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px 18px;
+            text-align: center;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border-top: 3px solid #e7ab04;
+        }
+        .step-icon { font-size: 2em; margin-bottom: 10px; }
+        .step-title { font-weight: bold; font-size: 0.95em; color: #111; margin-bottom: 6px; }
+        .step-desc { font-size: 0.85em; color: #666; }
+
+        .request-form-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .form-header {
+            background: #111;
+            padding: 24px 28px;
+            color: white;
+        }
+        .form-header h2 { margin: 0 0 4px; font-size: 1.4em; color: #e7ab04; }
+        .form-header p { margin: 0; color: #aaa; font-size: 0.9em; }
+
+        .form-body { padding: 28px; }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            font-size: 0.88em;
+            color: #333;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1.5px solid #ddd;
+            border-radius: 8px;
+            font-size: 0.95em;
+            color: #222;
+            background: #fafafa;
+            transition: border-color 0.2s, background 0.2s;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e7ab04;
+            background: white;
+        }
+        .form-group textarea { resize: vertical; min-height: 90px; }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        @media (max-width: 540px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        .form-note {
+            font-size: 0.82em;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #e7ab04;
+            color: #111;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.05em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            margin-top: 8px;
+        }
+        .submit-btn:hover { background: #d4990a; }
+        .submit-btn:active { transform: scale(0.98); }
+
+        .whatsapp-alt {
+            margin-top: 28px;
+            background: #f0fff6;
+            border: 1.5px solid #25d366;
+            border-radius: 10px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .whatsapp-alt .wa-icon { font-size: 2em; flex-shrink: 0; }
+        .whatsapp-alt .wa-text { font-size: 0.9em; color: #333; }
+        .whatsapp-alt .wa-text strong { color: #111; }
+        .whatsapp-alt .wa-btn {
+            margin-top: 8px;
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            font-weight: bold;
+            font-size: 0.88em;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .whatsapp-alt .wa-btn:hover { background: #1da851; }
+
+        /* Success message */
+        .success-msg {
+            display: none;
+            background: #f0fff6;
+            border: 1.5px solid #27ae60;
+            border-radius: 10px;
+            padding: 24px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .success-msg .success-icon { font-size: 2.5em; margin-bottom: 10px; }
+        .success-msg h3 { color: #27ae60; margin: 0 0 8px; }
+        .success-msg p { color: #555; font-size: 0.92em; margin: 0; }
+
+        /* FAQ */
+        .faq-section { margin-top: 50px; }
+        .faq-section h2 { font-size: 1.5em; margin-bottom: 20px; border-bottom: 2px solid #e7ab04; display: inline-block; padding-bottom: 4px; }
+        .faq-item { margin-bottom: 16px; }
+        .faq-q { font-weight: bold; color: #111; font-size: 0.95em; margin-bottom: 4px; }
+        .faq-a { color: #555; font-size: 0.9em; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="top-banner">
+        🚚 Free Delivery for Orders Over R999
+    </div>
+    <header>
+        <div class="logo">
+            <h1>The Next Chapter</h1>
+            <p>Every book is a new beginning.</p>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="bundles.html">Bundles</a>
+            <a href="request.html">Request a Book</a>
+            <a href="about.html">About</a>
+            <span class="cart" onclick="openCart()">🛒 <span id="cart-count">0</span></span>
+        </nav>
+    </header>
+
+    <div class="request-hero">
+        <h1>📚 Request a Book</h1>
+        <p>Can't find what you're looking for? Tell us — we'll do our best to source it for you.</p>
+    </div>
+
+    <div class="request-wrapper">
+
+        <!-- How it works -->
+        <div class="how-it-works">
+            <div class="step-card">
+                <div class="step-icon">📝</div>
+                <div class="step-title">1. Fill in the form</div>
+                <div class="step-desc">Tell us the book title, author, and any details you know.</div>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">🔍</div>
+                <div class="step-title">2. We source it</div>
+                <div class="step-desc">We check our suppliers and get back to you within 48 hours.</div>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">📲</div>
+                <div class="step-title">3. We contact you</div>
+                <div class="step-desc">If we find it, we'll WhatsApp or email you with price & availability.</div>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">🚚</div>
+                <div class="step-title">4. We deliver</div>
+                <div class="step-desc">Confirm your order and we'll get it to your door nationwide.</div>
+            </div>
+        </div>
+
+        <!-- Request Form -->
+        <div class="request-form-card">
+            <div class="form-header">
+                <h2>Book Request Form</h2>
+                <p>Fill in as much detail as you can — it helps us find the right edition.</p>
+            </div>
+            <div class="form-body">
+                <div id="requestForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" id="reqName" placeholder="e.g. Thabo Nkosi" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Phone / WhatsApp *</label>
+                            <input type="tel" id="reqPhone" placeholder="e.g. 071 234 5678" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Email (optional)</label>
+                        <input type="email" id="reqEmail" placeholder="e.g. you@email.com">
+                        <div class="form-note">We'll use WhatsApp as default. Email is a backup.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Book Title *</label>
+                        <input type="text" id="reqTitle" placeholder="e.g. The Diary of a Young Girl" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Author Name</label>
+                            <input type="text" id="reqAuthor" placeholder="e.g. Anne Frank">
+                        </div>
+                        <div class="form-group">
+                            <label>Genre / Category</label>
+                            <select id="reqGenre">
+                                <option value="">— Select if known —</option>
+                                <option>Fiction</option>
+                                <option>Non-Fiction</option>
+                                <option>Romance</option>
+                                <option>Self-Help / Motivation</option>
+                                <option>Kids / Young Adult</option>
+                                <option>South African Literature</option>
+                                <option>Sports</option>
+                                <option>Biography / Memoir</option>
+                                <option>Thriller / Mystery</option>
+                                <option>Fantasy / Sci-Fi</option>
+                                <option>Academic / Textbook</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Any extra details?</label>
+                        <textarea id="reqDetails" placeholder="e.g. specific edition, ISBN, series name, why you want it, budget — anything helps!"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>How urgently do you need it?</label>
+                        <select id="reqUrgency">
+                            <option value="flexible">Flexible — no rush</option>
+                            <option value="week">Within a week</option>
+                            <option value="urgent">Urgent — ASAP</option>
+                        </select>
+                    </div>
+
+                    <button class="submit-btn" onclick="submitRequest()">📩 Send My Book Request</button>
+                </div>
+
+                <div class="success-msg" id="successMsg">
+                    <div class="success-icon">🎉</div>
+                    <h3>Request Sent!</h3>
+                    <p>Thanks! We've received your request and will WhatsApp you within 48 hours with an update. Keep an eye on your phone!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WhatsApp Alternative -->
+        <div class="whatsapp-alt">
+            <div class="wa-icon">💬</div>
+            <div class="wa-text">
+                <strong>Prefer to message directly?</strong><br>
+                You can also just send us a WhatsApp with the book name and we'll get back to you quickly.
+                <br>
+                <a class="wa-btn" href="https://wa.me/27710383692?text=Hi%2C%20I%20would%20like%20to%20request%20a%20book%3A%20" target="_blank">📲 WhatsApp Us Your Request</a>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="faq-section">
+            <h2>Common Questions</h2>
+            <div class="faq-item">
+                <div class="faq-q">Is there a fee to request a book?</div>
+                <div class="faq-a">No — requesting is completely free. You only pay if we find the book and you decide to order it.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">How long does sourcing take?</div>
+                <div class="faq-a">We usually respond within 24–48 hours. If we find it, delivery typically takes 3–7 business days depending on your location.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">What if you can't find the book?</div>
+                <div class="faq-a">We'll let you know honestly. We won't keep you waiting — if we can't source it we'll tell you straight away.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">Can I request textbooks or academic books?</div>
+                <div class="faq-a">Yes! We do our best to source academic and educational titles too. Just provide the ISBN or edition details if you have them.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>The Next Chapter</h3>
+                <p>Every book is a new beginning.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a><br><br>
+                <a href="bundles.html">Bundles</a><br><br>
+                <a href="request.html">Request a Book</a><br><br>
+                <a href="about.html">About</a><br><br>
+            </div>
+            <div>
+                <h4>Contact Us</h4>
+                <a href="https://wa.me/27710383692?text=Hi%20I%20would%20like%20to%20order%20a%20book" target="_blank">WhatsApp Us</a><br><br>
+                <a href="mailto:orders@sibonelobuthelezi10@gmail.com">Email Us</a><br><br>
+                <a href="https://instagram.com/next_c.hapterbookstore" target="_blank">Instagram</a>
+            </div>
+        </div>
+        <p class="copyright">© 2026 The Next Chapter | All Rights Reserved</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+    <script>
+        function submitRequest() {
+            const name = document.getElementById('reqName').value.trim();
+            const phone = document.getElementById('reqPhone').value.trim();
+            const title = document.getElementById('reqTitle').value.trim();
+
+            if (!name || !phone || !title) {
+                alert('Please fill in your name, phone number, and the book title.');
+                return;
+            }
+
+            const author = document.getElementById('reqAuthor').value.trim();
+            const genre = document.getElementById('reqGenre').value;
+            const details = document.getElementById('reqDetails').value.trim();
+            const urgency = document.getElementById('reqUrgency').value;
+
+            const urgencyText = { flexible: 'Flexible', week: 'Within a week', urgent: 'URGENT — ASAP' };
+
+            const msg = `Hi! I'd like to request a book 📚%0A%0A` +
+                `*Name:* ${encodeURIComponent(name)}%0A` +
+                `*Phone:* ${encodeURIComponent(phone)}%0A` +
+                `*Book Title:* ${encodeURIComponent(title)}%0A` +
+                (author ? `*Author:* ${encodeURIComponent(author)}%0A` : '') +
+                (genre ? `*Genre:* ${encodeURIComponent(genre)}%0A` : '') +
+                `*Urgency:* ${encodeURIComponent(urgencyText[urgency])}%0A` +
+                (details ? `*Extra details:* ${encodeURIComponent(details)}` : '');
+
+            window.open(`https://wa.me/27710383692?text=${msg}`, '_blank');
+
+            document.getElementById('requestForm').style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
