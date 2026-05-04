@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     Bank: Capitec
     Account Name: Mr Buthelezi
-    Account Number: XXXXXXXX
+    Account Number: XXXXXXXXXX
     Branch Code: 250655
 
     Send proof of payment via WhatsApp.
