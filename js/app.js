@@ -252,8 +252,8 @@ function renderBundleBooks() {
 function getBundleConfig(type) {
   var bundles = {
     any4:        { name: 'Any 4 Books for R900',                    num: 4, filter: 'All',     price: 900  },
-    romance3:    { name: 'Romance Bundle – 3 Books for R849',       num: 3, filter: 'Romance', price: 849  },
-    buy3get1:    { name: 'Buy 3 Get 1 Free – Pick 4 Books!',        num: 4, filter: 'All',     price: 900,  freeBook: true },
+    romance3:    { name: 'Romance Bundle – 3 Books for R900',       num: 3, filter: 'Romance', price: 900  },
+    buy3get1:    { name: 'Buy 3 Get 1 Free – Pick 4 Books!',        num: 4, filter: 'All',     price: 950,  freeBook: true },
     starterpack: { name: 'Starter Pack – 3 Books for R799',         num: 3, filter: 'All',     price: 799,  isStarter: true },
     giftbox:     { name: 'The Gift Box – 5 Books for R1149',        num: 5, filter: 'All',     price: 1149, isGiftBox: true },
   };
